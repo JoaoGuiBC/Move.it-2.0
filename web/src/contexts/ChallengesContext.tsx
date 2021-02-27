@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 
+import api from '../services/api';
+
 import challenges from '../../challenges.json';
 
 import { LevelUpModal } from '../components/LevelUpModal';
@@ -51,7 +53,20 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     Cookies.set('level', String(level));
     Cookies.set('currentExperience', String(currentExperience));
     Cookies.set('challengesCompleted', String(challengesCompleted));
+
+    updateChallengeInfo();
   }, [level, currentExperience, challengesCompleted]);
+
+  async function updateChallengeInfo() {
+    const userId = Cookies.get('userId');
+
+    await api.put('/users', {
+      userId: Number(userId),
+      level,
+      currentExperience,
+      challengesCompleted,
+    });
+  }
 
   function levelUp() {
     setLevel(level + 1);
