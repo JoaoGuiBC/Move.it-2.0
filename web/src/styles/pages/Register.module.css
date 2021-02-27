@@ -1,0 +1,126 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: var(--blue);
+  color: var(--white);
+}
+
+.container img {
+  height: 35rem;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  height: 35rem;
+  width: 38.5rem;
+}
+
+.loginContainer img {
+  height: 5rem;
+}
+
+.textContainer {
+  margin-bottom: 1.5rem;
+}
+
+.textContainer strong {
+  font-size: 2.25rem;
+  line-height: 2.85rem;
+  color: var(--white);
+}
+
+.textContainer p {
+  font-size: 1.25rem;
+  line-height: 1.85rem;
+  max-width: 16rem;
+  color: var(--text-highlight);
+}
+
+.inputContainer {
+  width: 26.25rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer input {
+  width: 22.5rem;
+  height: 4rem;
+
+  border: none;
+  border-radius: 5px;
+
+  padding-left: 1.85rem;
+  margin: 0.25rem 0;
+
+  font-size: 1.25rem;
+  color: var(--white);
+  background: linear-gradient(to right, #4953b8 0%, #4953b833 100%);
+  outline: none;
+}
+
+.inputContainer input::placeholder {
+  color: var(--text-highlight);
+}
+
+.inputContainer input:focus {
+  border: 1.75px #414aa3 solid;
+}
+
+.inputContainer input:hover {
+  border: 1.75px #414aa3 solid;
+}
+
+.inputContainer button {
+  width: 22.5rem;
+  height: 4rem;
+
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.25rem;
+
+  background: var(--green);
+  font-size: 1.25rem;
+  color: var(--white);
+  outline: none;
+  transition: filter 0.2s;
+}
+
+.inputContainer button:hover {
+  filter: brightness(0.9);
+}
+
+.inputContainer button img {
+  height: 1.5rem;
+}
+
+.loginContainer > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--gray-line);
+  transition: filter 0.2s;
+}
+
+.loginContainer > a img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 1.25rem;
+  transform: rotate(180deg);
+  margin-right: 8px;
+}
+
+.loginContainer > a:hover {
+  filter: brightness(0.9);
+}

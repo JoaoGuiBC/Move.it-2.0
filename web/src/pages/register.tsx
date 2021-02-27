@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import styles from '../styles/pages/Login.module.css';
+import styles from '../styles/pages/Register.module.css';
 
 export default function Login() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Login | move.it</title>
+        <title>Cadastro | move.it</title>
       </Head>
 
       <img src="/Simbolo.svg" alt="logo"/>
@@ -15,8 +15,8 @@ export default function Login() {
         <img src="/logoWhite-full.svg" alt=""/>
 
         <div className={styles.textContainer}>
-          <strong>Bem-vindo</strong>
-          <p>Faça login na sua conta para começar</p>
+          <strong>Cadastre-se</strong>
+          <p>Informe um nome de usuário e senha</p>
         </div>
 
         <div className={styles.inputContainer}>
@@ -24,14 +24,14 @@ export default function Login() {
           <input type="text" placeholder="Senha"/>
           
           <button type="button">
-            <img src="/icons/arrow_right.svg" alt="icone entrar"/>
+            Cadastrar
           </button>
         </div>
 
-        <Link href="/register">
+        <Link href="/login">
           <a>
-            <img src="/icons/create_account.svg" alt="criar conta"/>
-            Criar sua conta
+            <img src="/icons/arrow_right.svg" alt="criar conta"/>
+            Voltar para o login
           </a>
         </Link>
       </div>
