@@ -55,7 +55,7 @@
   width: 22.5rem;
   height: 4rem;
 
-  border: none;
+  border: transparent;
   border-radius: 5px;
 
   padding-left: 1.85rem;
@@ -65,6 +65,8 @@
   color: var(--white);
   background: linear-gradient(to right, #4953b8 0%, #4953b833 100%);
   outline: none;
+
+  transition: border 0.2s;
 }
 
 .inputContainer input::placeholder {

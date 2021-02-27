@@ -26,7 +26,6 @@ export default function Login() {
   const handleLogin = useCallback(async () => {
     const response = await api.post('users/login', { username, password });
     const data = response.data as responseData;
-    console.log(data);
 
     Cookies.set('level', String(data.level));
     Cookies.set('currentExperience', String(data.currentExperience));
