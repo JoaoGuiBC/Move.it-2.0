@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 
 import { CompletedChallenges } from "../components/CompletedChallenges";
 import { ExperienceBar } from "../components/ExperienceBar";
@@ -18,6 +21,16 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const checkUserLoggedIn = Cookies.get('userId');
+
+    if (!checkUserLoggedIn) {
+      router.push('/login');
+    }
+  }, []);
+
   return (
     <ChallengesProvider 
       level={props.level} 

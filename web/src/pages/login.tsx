@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -15,24 +16,41 @@ interface responseData {
 }
 
 import api from '../services/api';
-import { useCallback, useState } from 'react';
+import ValidationErrorModal from '../components/ValidationErrorModal';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isModalActive, setIsModalActive] = useState(false);
 
   const router = useRouter();
 
-  const handleLogin = useCallback(async () => {
-    const response = await api.post('users/login', { username, password });
-    const data = response.data as responseData;
+  useEffect(() => {
+    const checkUserLoggedIn = Cookies.get('userId');
 
-    Cookies.set('level', String(data.level));
-    Cookies.set('currentExperience', String(data.currentExperience));
-    Cookies.set('challengesCompleted', String(data.challengesCompleted));
-    Cookies.set('userId', String(data.id));
-    Cookies.set('imagePath', data.imagePath);
-    Cookies.set('username', data.username);
+    if (checkUserLoggedIn) {
+      router.push('/');
+    }
+  }, []);
+
+  const handleLogin = useCallback(async () => {
+    if (!username || !password) {
+      return;
+    }
+
+    try {
+      const response = await api.post('users/login', { username, password });
+      const data = response.data as responseData;
+
+      Cookies.set('level', String(data.level));
+      Cookies.set('currentExperience', String(data.currentExperience));
+      Cookies.set('challengesCompleted', String(data.challengesCompleted));
+      Cookies.set('userId', String(data.id));
+      Cookies.set('imagePath', data.imagePath);
+      Cookies.set('username', data.username);
+    } catch (error) {
+      return setIsModalActive(true);
+    }
 
     router.push('/');
   }, [username, password]);
@@ -78,6 +96,10 @@ export default function Login() {
           </a>
         </Link>
       </div>
+
+      { isModalActive && 
+        <ValidationErrorModal setModal={setIsModalActive} page="login" /> 
+      }
     </div>
   );
 }
