@@ -8,7 +8,7 @@ const routes = Router();
 const upload = multer(uploadConfig);
 
 routes.get('/users', UsersController.index);
-routes.get('/users/login', UsersController.show);
+routes.post('/users/login', UsersController.show);
 routes.put('/users', UsersController.update);
 routes.post('/users', upload.single('image'), UsersController.create);
 
