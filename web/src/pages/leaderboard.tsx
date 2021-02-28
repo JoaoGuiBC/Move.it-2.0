@@ -41,7 +41,7 @@ export default function leaderboard({ Leaderboard }: LeaderboardProps) {
         { Leaderboard.map((user, index) => (
           <section className={styles.users}>
             <div className={styles.position}>
-              {index}
+              {index + 1}
             </div>
 
             <div className={styles.userInfo}>
