@@ -28,7 +28,7 @@ export default function Sidebar({ page }: SidebarProps) {
 
       <div className={styles.options}>
         <button disabled={page === 'dashboard'}>
-          <Link href="/">
+          <Link href="/" replace>
             <a>
               {
                 page === 'dashboard' 
@@ -40,7 +40,7 @@ export default function Sidebar({ page }: SidebarProps) {
         </button>
 
         <button disabled={page === 'leaderboard'}>
-          <Link href="/leaderboard">
+          <Link href="/leaderboard" replace>
             <a>
               {
                 page === 'leaderboard' 

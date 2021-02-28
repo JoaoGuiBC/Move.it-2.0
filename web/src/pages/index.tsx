@@ -9,7 +9,7 @@ import { ExperienceBar } from "../components/ExperienceBar";
 import { ChallengeBox } from "../components/ChallengeBox";
 import { Countdown } from "../components/Countdown";
 import { Profile } from "../components/Profile";
-import Sidebar from '../components/SideBar';
+import Sidebar from '../components/Sidebar';
 
 import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../contexts/CountdownContext';
@@ -45,20 +45,22 @@ export default function Home(props: HomeProps) {
 
         <Sidebar page="dashboard" />
 
-        <ExperienceBar />
-        
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
+        <div className={styles.challengesContainer}>
+          <ExperienceBar />
+  
+          <CountdownProvider>
+            <section>
+              <div>
+                <Profile />
+                <CompletedChallenges />
+                <Countdown />
+              </div>
+              <div>
+                <ChallengeBox />
+              </div>
+            </section>
+          </CountdownProvider>
+        </div>
       </div>
     </ChallengesProvider>
   )

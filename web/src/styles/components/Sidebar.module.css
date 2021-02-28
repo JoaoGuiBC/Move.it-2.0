@@ -1,18 +1,20 @@
 .container {
   position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
   background: linear-gradient(to bottom, #fff, var(--background));
 
-  width: 6rem;
+  width: 96px;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.06);
 
-  padding: 20px 0;
+  height: inherit;
+  padding: 20px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.container > img {
+  height: 2.5rem;
 }
 
 .options {
@@ -27,10 +29,15 @@
   display: flex;
   background: transparent;
   border: none;
-  padding: 16px 0;
+  padding: 8px 0;
   position: relative;
   font-size: 0;
   outline: none;
+}
+
+.options button a {
+  display: flex;
+  height: 3rem;
 }
 
 .options button:disabled:after {

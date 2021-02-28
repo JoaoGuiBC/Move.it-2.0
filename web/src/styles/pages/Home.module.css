@@ -1,5 +1,9 @@
 .container {
+  display: flex;
   height: 100vh;
+}
+
+.challengesContainer {
   max-width: 992px;
   margin: 0 auto;
   padding: 2.5rem 2rem;
@@ -9,7 +13,7 @@
   flex-direction: column;
 }
 
-.container section {
+.challengesContainer section {
   flex: 1;
 
   display: grid;

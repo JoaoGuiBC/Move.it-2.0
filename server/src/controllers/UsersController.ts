@@ -8,7 +8,20 @@ export default {
   async index(_: Request, response: Response) {
     const usersRepository = getRepository(User);
 
-    const users = await usersRepository.find();
+    const users = await usersRepository.find({
+      select: [
+        "challengesCompleted",
+        "currentExperience",
+        "imagePath",
+        "level",
+        "username",
+      ],
+      order: {
+        level: 'DESC',
+        currentExperience: 'DESC',
+      },
+      take: 10,
+    });
 
     return response.json(users);
   },
