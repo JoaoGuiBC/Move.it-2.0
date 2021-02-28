@@ -9,6 +9,7 @@ import { ExperienceBar } from "../components/ExperienceBar";
 import { ChallengeBox } from "../components/ChallengeBox";
 import { Countdown } from "../components/Countdown";
 import { Profile } from "../components/Profile";
+import Sidebar from '../components/SideBar';
 
 import styles from '../styles/pages/Home.module.css';
 import { CountdownProvider } from '../contexts/CountdownContext';
@@ -41,6 +42,8 @@ export default function Home(props: HomeProps) {
         <Head>
           <title>Início | move.it</title>
         </Head>
+
+        <Sidebar />
 
         <ExperienceBar />
         
